@@ -15,7 +15,7 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 class NotesViewModel(
-    private var dao: NoteDao
+    private val dao: NoteDao
 ) : ViewModel() {
 
     private val isSortedByDateAdded = MutableStateFlow(true)

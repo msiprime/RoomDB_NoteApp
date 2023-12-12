@@ -20,6 +20,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.room.Room
 import com.msicode.roomdb_noteapp.data.NotesDatabases
+import com.msicode.roomdb_noteapp.presentation.AddNotesScreen
 import com.msicode.roomdb_noteapp.presentation.NotesScreen
 import com.msicode.roomdb_noteapp.presentation.NotesViewModel
 import com.msicode.roomdb_noteapp.ui.theme.RoomDB_NoteAppTheme
@@ -37,7 +38,7 @@ class MainActivity : ComponentActivity() {
         factoryProducer = {
             object : ViewModelProvider.Factory {
                 override fun <T : ViewModel> create(modelClass: Class<T>): T {
-                    return NotesViewModel(database.dao) as T
+                    return NotesViewModel(database.getNoteDao()) as T
                 }
             }
         }

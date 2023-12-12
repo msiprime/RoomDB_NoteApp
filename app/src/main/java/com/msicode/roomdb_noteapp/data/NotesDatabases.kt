@@ -9,5 +9,6 @@ import androidx.room.RoomDatabase
     version = 1
 )
 abstract class NotesDatabases : RoomDatabase() {
-    abstract var dao: NoteDao
+    //abstract val dao: NoteDao
+    abstract fun getNoteDao(): NoteDao
 }

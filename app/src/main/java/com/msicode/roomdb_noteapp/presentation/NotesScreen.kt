@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Add
@@ -26,6 +27,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -109,9 +112,10 @@ fun NoteItem(
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .clip(RoundedCornerShape(10.dp))
-            .padding(12.dp)
+            .padding(10.dp)
             .background(MaterialTheme.colorScheme.primaryContainer)
+            .clip(shape = RoundedCornerShape(corner = CornerSize(10.dp)))
+
     ) {
         Column(
             modifier = Modifier.weight(1f)
@@ -120,13 +124,13 @@ fun NoteItem(
                 text = state.notes[index].tittle,
                 fontSize = 18.sp,
                 fontWeight = FontWeight.SemiBold,
-                color = MaterialTheme.colorScheme.secondaryContainer
+                color = MaterialTheme.colorScheme.secondary
             )
             Spacer(modifier = Modifier.height(8.dp))
             Text(
-                text = state.notes[index].tittle,
+                text = state.notes[index].description,
                 fontSize = 16.sp,
-                color = MaterialTheme.colorScheme.secondaryContainer
+                color = MaterialTheme.colorScheme.secondary
             )
         }
         IconButton(
